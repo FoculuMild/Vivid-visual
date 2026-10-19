@@ -13,7 +13,9 @@ jobs:
     - name: Unzip and Build
       run: |
         unzip -o *.zip
-        # Ищем папкуу, где лежит build.gradle, и переходим в нее
+        # Принудительно исправляем ошибку в файле ClickGuiScreen.java
+        sed -i 's/0x43FFFFFFF/0x43FFFFFF/g' src/main/java/dev/vivid/ClickGuiScreen.java
+        # Переходим в папку с проектом и собираем
         PROJECT_DIR=$(find . -name "build.gradle" -not -path "*/\.*" | head -n 1 | xargs dirname)
         cd "$PROJECT_DIR"
         gradle build
