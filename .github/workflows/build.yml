@@ -13,7 +13,7 @@ jobs:
     - name: Unzip and Build
       run: |
         unzip -o *.zip
-        # Ищем папку, где лежит build.gradle, и переходим в нее
+        # Ищем папкуу, где лежит build.gradle, и переходим в нее
         PROJECT_DIR=$(find . -name "build.gradle" -not -path "*/\.*" | head -n 1 | xargs dirname)
         cd "$PROJECT_DIR"
         gradle build
